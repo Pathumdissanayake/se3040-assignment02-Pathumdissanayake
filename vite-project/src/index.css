@@ -1,200 +1,415 @@
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-  
-    color: white;
-    background-color: #030615;
-  
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: white;
+  background-color: #030615;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  width: 100%;
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  object-fit: cover;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+footer div {
+  display: flex;
+  flex-direction: column;
+}
+
+footer h2 {
+  font-size: 1.4rem;
+}
+
+footer h1 {
+  font-size: 0.9rem;
+  font-weight: 200;
+}
+
+footer button {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 1rem;
+  transition-duration: 200ms;
+  cursor: pointer;
+}
+
+footer button i {
+  font-size: 1.3rem;
+}
+
+footer button:hover {
+  opacity: 0.7;
+}
+
+.bgGradient {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, #030615, rgba(255, 255, 255, 0));
+}
+
+.sidebar {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: #030615;
+  opacity: 0.6;
+}
+
+.sidebarContents {
+  z-index: 15;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  overflow-y: scroll;
+  height: 100%;
+  width: 80%;
+  max-width: 800px;
+  margin-left: auto;
+  background: #030615;
+}
+
+.sidebarContents h2 {
+  font-weight: 200;
+  font-size: 1.4rem;
+}
+
+.sidebarContents div {
+  flex: 1;
+}
+
+.sidebarContents button {
+  background: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  margin-right: auto;
+  cursor: pointer;
+  transition-duration: 200ms;
+  padding: 1rem 0;
+}
+
+.sidebarContents button:hover {
+  opacity: 0.7;
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.descriptionTitle {
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+.loadingState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh; /* Make sure it takes up the full height */
+}
+
+.loadingState i {
+  opacity: 0.2;
+  font-size: 3rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
   }
-  
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+
+  to {
+    transform: rotate(360deg);
   }
-  
-  #root {
-    min-height: 100vh;
-    display: flex;
-    display: relative;
-  }
-  
-  .imgContainer {
-    display: flex;
-    flex-direction: column;
-    max-height: 100vh;
-    width: 100%;
-  }
-  
-  .bgImage {
-    width: 100%;
-    height: 100%;
-    flex: 1;
-    object-fit: cover;
-  }
-  
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem;
-  }
-  
-  footer div {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  footer h2 {
-    font-size: 1.4rem;
-  }
-  
-  footer h1 {
-    font-size: 0.9rem;
-    font-weight: 200;
-  }
-  
-  footer button {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 1rem;
-    transition-duration: 200ms;
-    cursor: pointer;
-  }
-  
-  footer button i {
-    font-size: 1.3rem;
-  }
-  
-  footer button:hover {
-    opacity: 0.7;
-  }
-  
-  .bgGradient {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: linear-gradient(to top, #030615, rgba(255, 255, 255, 0));
-  }
-  
+}
+
+@media (min-width: 640px) {
   .sidebar {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    z-index: 10;
-  }
-  
-  .bgOverlay {
-    position: absolute;
-    inset: 0;
-    background: #030615;
-    opacity: 0.6;
-  }
-  
-  .sidebarContents {
-    z-index: 15;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    overflow-y: scroll;
-    height: 100%;
-    width: 80%;
-    max-width: 800px;
-    margin-left: auto;
-    background: #030615;
+    inset: unset;
+    min-width: 30%;
+    max-height: 100vh;
+    box-shadow: 0 0 40px 1px #030615;
   }
-  
-  .sidebarContents h2 {
-    font-weight: 200;
-    font-size: 1.4rem;
+
+  .sidebarContents {
+    margin: unset;
+    width: 100%;
   }
-  
-  .sidebarContents div {
-    flex: 1;
+
+  .bgOverlay {
+    right: 0;
+    left: unset;
+    width: 100vw;
   }
-  
-  .sidebarContents button {
-    background: transparent;
-    color: white;
-    border: none;
-    outline: none;
-    margin-right: auto;
-    cursor: pointer;
-    transition-duration: 200ms;
-    padding: 1rem 0;
-  }
-  
-  .sidebarContents button:hover {
-    opacity: 0.7;
-  }
-  
-  .descriptionContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .descriptionTitle {
-    font-size: 1.1rem;
-    font-weight: 200;
-  }
-  
-  .loadingState {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-  }
-  
-  .loadingState i {
-    opacity: 0.2;
-    font-size: 3rem;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-  
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  
-  @media (min-width: 640px) {
-    .sidebar {
-      position: relative;
-      inset: unset;
-      min-width: 30%;
-      max-height: 100vh;
-      box-shadow: 0 0 40px 1px #030615;
-    }
-  
-    .sidebarContents {
-      margin: unset;
-      width: 100%;
-    }
-  
-    .bgOverlay {
-      right: 0;
-      left: unset;
-      width: 100vw;
-    }
-  }
+}
+
+/* Home Styling */
+.home {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  height: 100vh; /* Take up the full height of the viewport */
+  padding: 0 20px; /* Add some padding to the sides */
+}
+
+.bgVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Ensure the video is behind other content */
+}
+
+.home button {
+  cursor: pointer;
+  background-color: white;
+  color: #030615;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  margin-top: 20px; /* Add margin to separate the sign-out button from other content */
+  position: absolute; /* Position the button absolutely */
+  top: 20px; /* Adjust top position for desired spacing */
+  right: 20px; /* Position the button to the right */
+}
+
+.home button:hover {
+  opacity: 0.8;
+}
+
+.home h1 {
+  font-size: 2.5rem; /* Adjust the font size of the title */
+  margin-bottom: 20px; /* Add some space below the title */
+  text-align: center; /* Center the text */
+}
+
+.home p {
+  font-size: 1.2rem; /* Adjust the font size of the paragraph */
+  margin-bottom: 30px; /* Add some space below the paragraph */
+  text-align: center; /* Center the text */
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 20px; /* Add some space between buttons */
+}
+
+.homeButton {
+  background-color: #ffffff; /* Button background color */
+  color: #030615; /* Button text color */
+  padding: 15px 30px; /* Button padding */
+  border: none; /* Remove button border */
+  border-radius: 5px; /* Add some border radius */
+  text-decoration: none; /* Remove underline */
+  font-size: 1.2rem; /* Button font size */
+}
+
+.homeButton:hover {
+  opacity: 0.8; /* Button hover opacity */
+}
+
+/* Add styling for MarsPage component */
+
+.marsPage {
+  padding: 40px;
+}
+
+.mars-heading {
+  font-size: 40px;
+  text-align: center;
+}
+
+.heading-div-mars {
+  padding-bottom: 40px;
+}
+
+.mars-para {
+  padding-left: 60px;
+  padding-right: 40px;
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.mars-heading2, .mars-heading3 {
+  padding-left: 40px;
+  padding-top: 20px;
+  font-size: 25px;
+}
+
+.photoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px;
+}
+
+.photoItem {
+  width: calc(50% - 20px); /* 3 images per row */
+  margin-bottom: 40px;
+}
+
+.photoItem img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.photoItem p {
+  margin-top: 5px;
+  font-size: 18px;
+  color: #777;
+  text-align: center;
+}
+
+/* Login Styling */
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.log-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.log-activeColor {
+  font-size: 22px;
+  padding: 10px 15px;
+  height: auto;
+  cursor: pointer;
+  text-align: center;
+  background-color: white;
+  color: #030615;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.log-pointer {
+  font-size: 22px;
+  padding: 10px 15px;
+  height: auto;
+  cursor: pointer;
+  text-align: center;
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.log-activeColor:hover,
+.log-pointer:hover {
+  opacity: 0.8;
+}
+
+.login h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.login form {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login button {
+  width: 40%;
+  padding: 10px;
+  background-color: #030615;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 22px;
+  margin: 0 auto; /* Center the button horizontally */
+  display: block; /* Ensure the button occupies its own line */
+}
+
+.login button:hover {
+  opacity: 0.8;
+}
+
+.title-login {
+  font-size: 22px;
+}

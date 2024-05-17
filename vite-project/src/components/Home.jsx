@@ -25,7 +25,7 @@ function Home() {
       <div>
         <button onClick={handleClick}>SignOut</button>
       </div>
-      <h1>Welocome !</h1>
+      <h1>Welcome !</h1>
       <p>
       Step into the cosmos with our immersive project, where the boundless wonders of space come to life. Delve into the depths of the universe through NASA's vast archive of stunning visuals and insightful data. Explore the celestial realms, from distant galaxies to our own solar system, and uncover the secrets of the cosmos with each click. Join us on an unforgettable voyage of discovery.
       </p>

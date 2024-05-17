@@ -272,58 +272,6 @@ footer button:hover {
   opacity: 0.8; /* Button hover opacity */
 }
 
-/* Add styling for MarsPage component */
-
-.marsPage {
-  padding: 40px;
-}
-
-.mars-heading {
-  font-size: 40px;
-  text-align: center;
-}
-
-.heading-div-mars {
-  padding-bottom: 40px;
-}
-
-.mars-para {
-  padding-left: 60px;
-  padding-right: 40px;
-  padding-top: 20px;
-  font-size: 20px;
-}
-
-.mars-heading2, .mars-heading3 {
-  padding-left: 40px;
-  padding-top: 20px;
-  font-size: 25px;
-}
-
-.photoContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding: 40px;
-}
-
-.photoItem {
-  width: calc(50% - 20px); /* 3 images per row */
-  margin-bottom: 40px;
-}
-
-.photoItem img {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.photoItem p {
-  margin-top: 5px;
-  font-size: 18px;
-  color: #777;
-  text-align: center;
-}
-
 /* Login Styling */
 
 .login {
@@ -412,4 +360,114 @@ footer button:hover {
 
 .title-login {
   font-size: 22px;
+}
+
+/* Mars Page Styling */
+
+/* Mars Images */
+.photoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 60px;
+}
+
+.photoItem:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.photoItem {
+  width: calc(50% - 10px); /* 2 images per row with gap */
+  margin-bottom: 20px;
+  padding: 60px;
+}
+
+.imageContainer {
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.imageContainer img {
+  width: 100%;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(255, 255, 255); /* Transparent black background */
+  padding: 10px;
+  border-radius: 10px; /* Border radius */
+}
+
+.overlay p {
+  margin: 5px 0;
+  font-size: 18px;
+  color: black; /* Text color */
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Mars Page Text */
+
+/* Container styling for the text content */
+.heading-div-mars {
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  padding: 20px; /* Add padding around the content */
+  border-radius: 10px; /* Add border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add box shadow */
+  margin-bottom: 30px; /* Add space between containers */
+}
+
+.div-body-mars {
+  padding: 20px; /* Add padding around the content */
+}
+
+/* Styling for the headings */
+.mars-heading {
+  padding-top: 40px;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffffff; /* Text color */
+  text-align: center; /* Center the text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+}
+
+.mars-heading2,
+.mars-heading3 {
+  padding-left: 120px;
+  padding-right: 120px;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #ffffff; /* Text color */
+  margin-bottom: 10px; /* Add space below the headings */
+}
+
+/* Styling for the paragraphs */
+.mars-para,
+.mars-para2 {
+  padding-left: 120px;
+  padding-right: 120px;
+  font-size: 1.2rem;
+  color: #ffffff; /* Text color */
+  margin-bottom: 20px; /* Add space between paragraphs */
+}
+
+/* Additional styling for the third heading */
+.mars-heading3 {
+  padding-left: 120px;
+  padding-right: 120px;
+  font-weight: bold; /* Make the text bold */
+  text-align: center; /* Center the text */
+}
+
+/* Hover effect for the paragraphs */
+.mars-para:hover,
+.mars-para2:hover {
+  cursor: pointer;
+  opacity: 0.8; /* Reduce opacity on hover */
 }
